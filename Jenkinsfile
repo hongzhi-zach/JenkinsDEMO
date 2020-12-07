@@ -30,7 +30,7 @@ node {
     }
     stage('Build image'){
         //building image
-        app = docker.build("hongzhizhangzach/JenkinsDEMO")
+        app = docker.build("jenkinsuser1/JenkinsDEMO")
     }
     stage('Test image'){
         //test framework
