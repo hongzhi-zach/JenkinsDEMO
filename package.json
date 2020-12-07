@@ -1,0 +1,20 @@
+{
+  "name": "demoapp",
+  "version": "1.0.0",
+  "description": "HTTP server using Node JS",
+  "main": "main.js",
+  "scripts": {
+    "test": "node test.js",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hongzhi-zach/JenkinsDEMO"
+  },
+  "keywords": [
+    "node",
+    "docker",
+    "dockerfile"
+  ],
+  "devDependencies": { "test": ">=0.6.0" }
+}
