@@ -33,7 +33,7 @@ node {
 
 pipeline { 
     environment { 
-        registry = "hongzhizhangzach/JenkinsDEMO" 
+        registry = "hongzhizhangzach/jenkinsdemo" 
         registryCredential = 'dockerhub-cred' 
         dockerImage = '' 
     }
