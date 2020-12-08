@@ -1,27 +1,4 @@
-/*Declarative 
-pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Demo Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Demo Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Demo Deploying....'
-            }
-        }
-    }
-}
-*/
-//scripted
+/*scripted
 node {
     def app
     stage('Clone repository'){
@@ -50,5 +27,41 @@ node {
             app.push("latest")
         }
         echo "Trying to Push Docker Build to DockerHub"
+    }
+}
+*/
+
+pipeline { 
+    environment { 
+        registry = "hongzhizhangzach/JenkinsDEMO" 
+        registryCredential = 'dockerhub-credentials' 
+        dockerImage = '' 
+    }
+    agent any 
+    stages { 
+        stage('Cloning our Git') { 
+            checkout scm 
+        } 
+        stage('Building our image') { 
+            steps { 
+                script { 
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                }
+            } 
+        }
+        stage('Deploy our image') { 
+            steps { 
+                script { 
+                    docker.withRegistry( '', registryCredential ) { 
+                        dockerImage.push() 
+                    }
+                } 
+            }
+        } 
+        stage('Cleaning up') { 
+            steps { 
+                sh "docker rmi $registry:$BUILD_NUMBER" 
+            }
+        } 
     }
 }
