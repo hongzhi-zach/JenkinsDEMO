@@ -1,7 +1,7 @@
 FROM node:8
 
 # Create app directory
-WORKDIR /var/jenkins_home/workspace
+WORKDIR /var/jenkins_home/workspace/DockerBuildPipeline
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
