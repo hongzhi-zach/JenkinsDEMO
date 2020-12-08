@@ -34,7 +34,7 @@ node {
 pipeline { 
     environment { 
         registry = "hongzhizhangzach/JenkinsDEMO" 
-        registryCredential = 'dockerhub-credentials' 
+        registryCredential = 'dockerhub-cred' 
         dockerImage = '' 
     }
     agent any 
