@@ -1,20 +1,13 @@
 {
-  "name": "demoapp",
+  "name": "docker_web_app",
   "version": "1.0.0",
-  "description": "HTTP server using Node JS",
+  "description": "node demo app for CI testing",
+  "author": "hongzhizhangzach",
   "main": "main.js",
   "scripts": {
-    "test": "node test.js",
-    "start": "node main.js"
+    "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hongzhi-zach/JenkinsDEMO"
-  },
-  "keywords": [
-    "node",
-    "docker",
-    "dockerfile"
-  ],
-  "devDependencies": { "test": ">=0.6.0" }
+  "dependencies": {
+    "express": "^4.16.1"
+  }
 }

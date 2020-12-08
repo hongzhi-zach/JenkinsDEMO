@@ -1,12 +1,16 @@
-// load the http module
-var http = require('http');
+'use strict';
 
-// configure our HTTP server
-var server = http.createServer(function (request, response) {
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.end("Testing... \n");
+const express = require('express');
+
+// Constants
+const PORT = 9001;
+const HOST = '0.0.0.0';
+
+// App
+const app = express();
+app.get('/', (req, res) => {
+  res.send('Hello world\n');
 });
 
-// listen on localhost:8000
-server.listen(8000);
-console.log("Server listening on port 8000 :  http://127.0.0.1:8000/");
+app.listen(PORT, HOST);
+console.log(`Running on http://${HOST}:${PORT}`);
