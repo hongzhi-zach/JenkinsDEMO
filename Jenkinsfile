@@ -40,7 +40,9 @@ pipeline {
     agent any 
     stages { 
         stage('Cloning our Git') { 
-            checkout scm 
+            steps { 
+                checkout scm 
+            }
         } 
         stage('Building our image') { 
             steps { 
